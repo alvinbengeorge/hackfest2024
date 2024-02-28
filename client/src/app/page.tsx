@@ -19,13 +19,11 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setGyro((prev) => {
-        console.log(new Date().toLocaleTimeString())
-        const x = Math.random() * 10;
-        const y = Math.random() * 10;
-        const z = Math.random() * 10;
-        return [...prev, { x, y, z, name: new Date().toLocaleTimeString()}];
-      });
+      fetch(API_URL + "data").then((res) => res.json()).then((data) => {
+        const { gyroscope, accelerometer } = data;
+        setGyro(gyroscope);
+        setAcc(accelerometer);
+      })
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -42,19 +40,38 @@ export default function Home() {
           <p className="p-2 text-center">Enabling assistance to <span className="text-red-300">you</span></p>
         </div>
       </section>
-      <section className="h-screen bg-[#111111] p-8">
+      <section className={font.className + " h-screen bg-[#111111] p-8"}>
         <div className="grid grid-cols-2 w-full h-full gap-2 p-2">
           <div className="w-full h-full bg-red-900 rounded-2xl grid place-items-center">
-            <div className="bg-red-100 p-4 rounded-2xl">
-              <LineChart width={600} height={300} data={gyro.slice(gyro.length > 10 ? gyro.length - 10 : 0, gyro.length - 1)}>
-                <CartesianGrid stroke="#000" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Line type="monotone" dataKey="x" stroke="#8884d8" strokeWidth={4} />
-                <Line type="monotone" dataKey="y" stroke="#82ca9d" strokeWidth={4} />
-                <Line type="monotone" dataKey="z" stroke="#ff0000" strokeWidth={4} />
-              </LineChart>
+            <div className="w-full h-full grid grid-cols-1 p-2 gap-2">
+              <div className="bg-red-100 p-4 rounded-2xl grid place-items-center">
+                <div>
+                  <h1 className={font.className + " text-center text-4xl text-black"}>Gyroscope</h1>
+                  <LineChart width={600} height={300} data={gyro.slice(gyro.length > 10 ? gyro.length - 10 : 0, gyro.length - 1)}>
+                    <CartesianGrid stroke="#000" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Line type="monotone" dataKey="x" stroke="#8884d8" strokeWidth={4} />
+                    <Line type="monotone" dataKey="y" stroke="#82ca9d" strokeWidth={4} />
+                    <Line type="monotone" dataKey="z" stroke="#ff0000" strokeWidth={4} />
+                  </LineChart>
+                </div>
+              </div>
+              <div className="bg-red-100 p-4 rounded-2xl grid place-items-center">
+                <div>
+                  <h1 className={font.className + " text-center text-4xl text-black"}>Accelerometer</h1>
+                  <LineChart width={600} height={300} data={acc.slice(acc.length > 10 ? acc.length - 10 : 0, acc.length - 1)} title="Accelerometer">
+                    <CartesianGrid stroke="#000" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Line type="monotone" dataKey="x" stroke="#8884d8" strokeWidth={4} />
+                    <Line type="monotone" dataKey="y" stroke="#82ca9d" strokeWidth={4} />
+                    <Line type="monotone" dataKey="z" stroke="#ff0000" strokeWidth={4} />
+                </LineChart>
+                </div>
+              </div>
             </div>
           </div>
           <div className="w-full h-full rounded-2xl grid grid-cols-1 grid-rows-2 gap-2">
@@ -71,36 +88,36 @@ export default function Home() {
                   <div>32</div>
                 </div>
               </div>
-              <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-red-300 transition duration-500 h-full">
+              <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-red-300 transition duration-500 h-full col-span-2">
                 <div>
                   <div className="font-bold">Distance Covered</div>
                   <div>32</div>
                 </div>
               </div>
-              <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-red-300 transition duration-500 h-full">
+              {/* <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-red-300 transition duration-500 h-full">
                 <div>
                   <div className="font-bold">Heading</div>
                   <div>32</div>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="bg-red-900 rounded-2xl grid place-items-center gap-2 grid-cols-3 text-center p-2 text-black">
               <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full h-full hover:shadow-lg hover:shadow-red-300 transition duration-500">
                 <div>
                   <div className="font-bold">Acceleration X</div>
-                  <div>32</div>
+                  <div>{acc[acc.length - 1].x.toPrecision(2)}</div>
                 </div>
               </div>
               <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full h-full hover:shadow-lg hover:shadow-red-300 transition duration-500">
                 <div>
                   <div className="font-bold">Acceleration Y</div>
-                  <div>32</div>
+                  <div>{acc[acc.length - 1].y.toPrecision(2)}</div>
                 </div>
               </div>
               <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-red-300 transition duration-500 h-full">
                 <div>
                   <div className="font-bold">Acceleration Z</div>
-                  <div>32</div>
+                  <div>{acc[acc.length - 1].z.toPrecision(2)}</div>
                 </div>
               </div>
               <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-red-300 transition duration-500 h-full">
