@@ -5,7 +5,7 @@ const font = Playfair_Display({
     weight: "400",
 });
 
-export default function () {
+export default function Main_screen() {
     return (
       <div className="">
         <h1 className={font.className + " text-6xl font-bold z-10"}>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function prediction({ API_URL, font }: { API_URL: string, font: string }) {
+export default function Prediction({ API_URL, font }: { API_URL: string, font: string }) {
     const [text, setText] = useState("");
     const [prediction, setPrediction] = useState("default");
 

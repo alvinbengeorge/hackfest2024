@@ -19,8 +19,6 @@ AUTH_TOKEN = environ.get("AUTH_TOKEN")
 FROM_NUMBER = environ.get("TWILIO_NUMBER")
 TO_NUMBER = environ.get("TARGET_NUMBER")
 
-print(ACCOUNT_SID, AUTH_TOKEN, FROM_NUMBER, TO_NUMBER)
-
 client = Client(ACCOUNT_SID, AUTH_TOKEN)
 
 
