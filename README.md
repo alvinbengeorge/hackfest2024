@@ -1,2 +1,5 @@
-# hackfest2024
-hackfest project
+# AFMD research
+
+```
+This project was made for AFMD research
+```
