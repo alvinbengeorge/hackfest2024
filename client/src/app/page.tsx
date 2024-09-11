@@ -8,7 +8,7 @@ import MainScreen from "../components/main_screen";
 import Prediction from "../components/prediction"
 import Image from "next/image";
 
-const API_URL = "https://shiny-funicular-7wwg56x5v6wfr5vj-8000.app.github.dev/"
+const API_URL = "https://fantastic-xylophone-vwwxr95q4p43wq5j-8000.app.github.dev/"
 
 
 
@@ -64,10 +64,10 @@ export default function Home() {
       {/* <section className="h-screen grid place-items-center">
         <motion.div className={font.className} initial={{ opacity: 0, y: "20%" }} whileInView={{ opacity: 1, y: 0 }}>
           <h1 className="text-6xl font-bold z-10">
-            <span className="text-8xl text-red-400">M</span>edi
-            <span className="text-red-400 text-8xl">C</span>o.
+            <span className="text-8xl text-blue-400">M</span>edi
+            <span className="text-blue-400 text-8xl">C</span>o.
           </h1>
-          <p className="p-2 text-center">Enabling assistance to <span className="text-red-300">you</span></p>
+          <p className="p-2 text-center">Enabling assistance to <span className="text-blue-300">you</span></p>
         </motion.div>
         <div className="absolute bg-[url('/background.jpg')] bg-cover inset-0 z-0"></div>
         <div></div>
@@ -77,12 +77,12 @@ export default function Home() {
         {/* <div className=""><Image src="/watch.png" width={300} height={300} alt=" " /></div> */}
       </section>
       <section className={" bg-[#111111] p-8"}>
-        <div className="pe-2 ps-2"><h1 className={futuristic.className + " text-6xl  p-4 text-center bg-red-900 rounded-2xl"}>Report</h1></div>
+        <div className="pe-2 ps-2"><h1 className={futuristic.className + " text-6xl  p-4 text-center bg-blue-900 rounded-2xl"}>Report</h1></div>
         <motion.div className="grid grid-cols-1 w-full h-full gap-2 p-2 sm:grid-cols-2" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-          <div className="w-full h-full bg-red-900 rounded-2xl grid place-items-center grid-cols-1">
+          <div className="w-full h-full bg-blue-900 rounded-2xl grid place-items-center grid-cols-1">
             <div className="grid grid-cols-2 place-items-center w-full p-2 gap-2">
-              <div className="text-center text-4xl text-black bg-red-200 rounded-2xl w-full h-full grid place-items-center p-2"><h1>{patient_data.name}</h1></div>
-              <div className="text-left text-black bg-red-200 rounded-2xl w-full text-2xl p-6 h-full">
+              <div className="text-center text-4xl text-black bg-blue-200 rounded-2xl w-full h-full grid place-items-center p-2"><h1>{patient_data.name}</h1></div>
+              <div className="text-left text-black bg-blue-200 rounded-2xl w-full text-2xl p-6 h-full">
                 <p>
                   <span className="font-bold">Age:</span> {patient_data.age}<br></br>
                   <span className="font-bold">Phone Number:</span> {patient_data.phoneno}<br></br>
@@ -92,7 +92,7 @@ export default function Home() {
               </div>
             </div>
             <div className="w-full h-full grid grid-cols-1 p-2 gap-2">
-              <div className="bg-red-200 p-4 rounded-2xl grid place-items-center">
+              <div className="bg-blue-200 p-4 rounded-2xl grid place-items-center">
                 <div>
                   <h1 className={font.className + " text-center text-4xl text-black"}>Gyroscope</h1>
                   <LineChart width={600} height={300} data={gyro.slice(gyro.length > 10 ? gyro.length - 10 : 0, gyro.length - 1)}>
@@ -106,7 +106,7 @@ export default function Home() {
                   </LineChart>
                 </div>
               </div>
-              <div className="bg-red-200 p-4 rounded-2xl grid place-items-center">
+              <div className="bg-blue-200 p-4 rounded-2xl grid place-items-center">
                 <div>
                   <h1 className={font.className + " text-center text-4xl text-black"}>Accelerometer</h1>
                   <LineChart width={600} height={300} data={acc.slice(acc.length > 10 ? acc.length - 10 : 0, acc.length - 1)} title="Accelerometer">
@@ -123,64 +123,64 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full h-full rounded-2xl grid grid-cols-1 grid-rows-2 gap-2">
-            <div className="bg-red-900 rounded-2xl grid place-items-center gap-2 grid-cols-2 text-center p-2 text-black">
-              <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full h-full hover:shadow-lg hover:shadow-red-300 transition duration-500">
+            <div className="bg-blue-900 rounded-2xl grid place-items-center gap-2 grid-cols-2 text-center p-2 text-black">
+              <div className=" p-4 text-xl  bg-blue-200 grid place-items-center rounded-2xl w-full h-full hover:shadow-lg hover:shadow-blue-300 transition duration-500">
                 <div>
                   <div className="font-bold">No. of Falls</div>
                   <div className={futuristic.className + " text-6xl"}>{falls}</div>
                 </div>
               </div>
-              <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-red-300 transition duration-500 h-full">
+              <div className=" p-4 text-xl  bg-blue-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-blue-300 transition duration-500 h-full">
                 <div>
                   <div className="font-bold">Steps</div>
                   <div className={futuristic.className + " text-6xl"}>{steps}</div>
                 </div>
               </div>
-              <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-red-300 transition duration-500 h-full col-span-2">
+              <div className=" p-4 text-xl  bg-blue-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-blue-300 transition duration-500 h-full col-span-2">
                 <div>
                   <div className="font-bold">Distance Covered</div>
                   <div className={futuristic.className + " text-6xl"}>{(steps*0.74).toPrecision(2)}m</div>
                 </div>
               </div>
-              {/* <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-red-300 transition duration-500 h-full">
+              {/* <div className=" p-4 text-xl  bg-blue-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-blue-300 transition duration-500 h-full">
                 <div>
                   <div className="font-bold">Heading</div>
                   <div>32</div>
                 </div>
               </div> */}
             </div>
-            <div className="bg-red-900 rounded-2xl grid place-items-center gap-2 grid-cols-1 text-center p-2 text-black sm:grid-cols-3">
-              <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full h-full hover:shadow-lg hover:shadow-red-300 transition duration-500">
+            <div className="bg-blue-900 rounded-2xl grid place-items-center gap-2 grid-cols-1 text-center p-2 text-black sm:grid-cols-3">
+              <div className=" p-4 text-xl  bg-blue-200 grid place-items-center rounded-2xl w-full h-full hover:shadow-lg hover:shadow-blue-300 transition duration-500">
                 <div>
                   <div className="font-bold">Acceleration X</div>
                   <div className={futuristic.className + " text-6xl"}>{acc[acc.length - 1].x.toPrecision(2)}</div>
                 </div>
               </div>
-              <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full h-full hover:shadow-lg hover:shadow-red-300 transition duration-500">
+              <div className=" p-4 text-xl  bg-blue-200 grid place-items-center rounded-2xl w-full h-full hover:shadow-lg hover:shadow-blue-300 transition duration-500">
                 <div>
                   <div className="font-bold">Acceleration Y</div>
                   <div className={futuristic.className + " text-6xl"}>{acc[acc.length - 1].y.toPrecision(2)}</div>
                 </div>
               </div>
-              <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-red-300 transition duration-500 h-full">
+              <div className=" p-4 text-xl  bg-blue-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-blue-300 transition duration-500 h-full">
                 <div>
                   <div className="font-bold">Acceleration Z</div>
                   <div className={futuristic.className + " text-6xl"}>{acc[acc.length - 1].z.toPrecision(2)}</div>
                 </div>
               </div>
-              <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-red-300 transition duration-500 h-full">
+              <div className=" p-4 text-xl  bg-blue-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-blue-300 transition duration-500 h-full">
                 <div>
                   <div className="font-bold">Gyro X</div>
                   <div className={futuristic.className + " text-6xl"}>{gyro[gyro.length - 1].x.toPrecision(2)}</div>
                 </div>
               </div>
-              <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-red-300 transition duration-500 h-full">
+              <div className=" p-4 text-xl  bg-blue-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-blue-300 transition duration-500 h-full">
                 <div>
                   <div className="font-bold">Gyro Y</div>
                   <div className={futuristic.className + " text-6xl"}>{gyro[gyro.length - 1].y.toPrecision(2)}</div>
                 </div>
               </div>
-              <div className=" p-4 text-xl  bg-red-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-red-300 transition duration-500 h-full">
+              <div className=" p-4 text-xl  bg-blue-200 grid place-items-center rounded-2xl w-full hover:shadow-lg hover:shadow-blue-300 transition duration-500 h-full">
                 <div>
                   <div className="font-bold">Gyro Z</div>
                   <div className={futuristic.className + " text-6xl"}>{gyro[gyro.length - 1].z.toPrecision(2)}</div>
