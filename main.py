@@ -23,14 +23,14 @@ client = Client(ACCOUNT_SID, AUTH_TOKEN)
 
 
 class GyroScopeData(BaseModel):
-    x: int
-    y: int
-    z: int
+    x: float
+    y: float
+    z: float
 
 class AccelerometerData(BaseModel):
-    x: int
-    y: int
-    z: int
+    x: float
+    y: float
+    z: float
 
 class Data(BaseModel):
     gyroscope: GyroScopeData
@@ -60,6 +60,8 @@ datas = {
     "sos": 0,
 }
 
+steps = 0
+
 @app.post("/append_data")
 async def append_data(data: Data):
     data = dict(data)
@@ -69,6 +71,7 @@ async def append_data(data: Data):
     data["accelerometer"]["name"] = datetime.now().astimezone(timezone('Asia/Kolkata')).strftime("%I:%M:%S %p")
     datas["gyroscope"].append(data["gyroscope"])
     datas["accelerometer"].append(data["accelerometer"])
+    datas['steps'] = data['steps']
     return {"message": "Data appended successfully"}
 
 @app.get("/send_message")
