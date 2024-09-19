@@ -5,19 +5,19 @@ from datetime import datetime, timedelta
 from pydantic import BaseModel
 from pytz import timezone
 from dotenv import load_dotenv
-from os import environ
 from twilio.rest import Client
 from joblib import load
 import numpy as np
+import os
 
 # print(datetime.now().astimezone(timezone('Asia/Kolkata')).strftime("%I:%M:%S %p"))
 load_dotenv()
 svc = load('parkinsons.joblib')
 
-ACCOUNT_SID = environ.get("ACCOUNT_SID")
-AUTH_TOKEN = environ.get("AUTH_TOKEN")
-FROM_NUMBER = environ.get("TWILIO_NUMBER")
-TO_NUMBER = environ.get("TARGET_NUMBER")
+ACCOUNT_SID = os.getenv("ACCOUNT_SID")
+AUTH_TOKEN = os.getenv("AUTH_TOKEN")
+FROM_NUMBER = os.getenv("TWILIO_NUMBER")
+TO_NUMBER = os.getenv("TARGET_NUMBER")
 
 client = Client(ACCOUNT_SID, AUTH_TOKEN)
 
