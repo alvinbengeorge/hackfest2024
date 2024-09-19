@@ -190,9 +190,9 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-      <section className="p-8">
+      {/* <section className="p-8">
         <Prediction API_URL={API_URL} font={font.className} />
-      </section>
+      </section> */}
     </main>
   );
 }
