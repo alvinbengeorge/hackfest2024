@@ -8,7 +8,7 @@ import MainScreen from "../components/main_screen";
 import Prediction from "../components/prediction"
 import Image from "next/image";
 
-const API_URL = "https://fantastic-xylophone-vwwxr95q4p43wq5j-8000.app.github.dev/"
+const API_URL = "https://crispy-yodel-p99xw46wj7gf6769-8000.app.github.dev/"
 
 
 
